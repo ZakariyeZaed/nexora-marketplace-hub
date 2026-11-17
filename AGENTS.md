@@ -1,4 +1,5 @@
 <!-- LOVABLE:BEGIN -->
+
 > [!IMPORTANT]
 > This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
 > published git history — force pushing, or rebasing/amending/squashing commits
@@ -27,4 +28,14 @@ use the editor.
   `LOVABLE_API_KEY`. When Lovable does not provide one, users can bring their
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
+
 <!-- LOVABLE:END -->
+
+<!-- AGENT-MEMORY:BEGIN -->
+
+- Keep marketplace domain code under src/features/marketplace with thin TanStack leaf routes; shared models, filters, and cards ensure consistent category behavior.
+- Use the browser-only mock-service adapter and MarketplaceProvider for demo persistence after hydration; this keeps simulated actions honest and avoids server dependencies.
+- Keep every named content page as a typed route with its own head metadata; shared dashboard views use role-specific route entry points.
+- Keep visual tokens and responsive styles in src/styles.css and use design-system Buttons; this maintains one cohesive brand across public and dashboard screens.
+
+<!-- AGENT-MEMORY:END -->

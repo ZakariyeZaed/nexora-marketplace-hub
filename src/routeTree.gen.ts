@@ -10,33 +10,719 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as BecomeSellerRouteImport } from './routes/become-seller'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CategoriesRouteImport } from './routes/categories'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ElectronicsRouteImport } from './routes/electronics'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FashionRouteImport } from './routes/fashion'
+import { Route as FeaturedRouteImport } from './routes/featured'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as HomeLivingRouteImport } from './routes/home-living'
+import { Route as InvestorsRouteImport } from './routes/investors'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PartnershipsRouteImport } from './routes/partnerships'
+import { Route as RealEstateRouteImport } from './routes/real-estate'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as SellerRouteImport } from './routes/seller'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SportsRouteImport } from './routes/sports'
+import { Route as VehiclesRouteImport } from './routes/vehicles'
+import { Route as WishlistRouteImport } from './routes/wishlist'
+import { Route as AccountIndexRouteImport } from './routes/account.index'
+import { Route as AccountInquiriesRouteImport } from './routes/account.inquiries'
+import { Route as AccountOrdersRouteImport } from './routes/account.orders'
+import { Route as AccountProfileRouteImport } from './routes/account.profile'
+import { Route as AccountPropertiesRouteImport } from './routes/account.properties'
+import { Route as AccountSettingsRouteImport } from './routes/account.settings'
+import { Route as AccountWishlistRouteImport } from './routes/account.wishlist'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminApprovalsRouteImport } from './routes/admin.approvals'
+import { Route as AdminCategoriesRouteImport } from './routes/admin.categories'
+import { Route as AdminListingsRouteImport } from './routes/admin.listings'
+import { Route as AdminOrdersRouteImport } from './routes/admin.orders'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminSellersRouteImport } from './routes/admin.sellers'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as ListingIdRouteImport } from './routes/listing.$id'
+import { Route as SellerIndexRouteImport } from './routes/seller.index'
+import { Route as SellerAddRouteImport } from './routes/seller.add'
+import { Route as SellerAnalyticsRouteImport } from './routes/seller.analytics'
+import { Route as SellerInquiriesRouteImport } from './routes/seller.inquiries'
+import { Route as SellerListingsRouteImport } from './routes/seller.listings'
+import { Route as SellerOrdersRouteImport } from './routes/seller.orders'
+import { Route as SellerPlansRouteImport } from './routes/seller.plans'
+import { Route as SellerProfileRouteImport } from './routes/seller.profile'
+import { Route as SellerSettingsRouteImport } from './routes/seller.settings'
+import { Route as StoreIdRouteImport } from './routes/store.$id'
+import { Route as AccountOrdersIdRouteImport } from './routes/account.orders_.$id'
+import { Route as SellerListingsIdEditRouteImport } from './routes/seller.listings_.$id.edit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BecomeSellerRoute = BecomeSellerRouteImport.update({
+  id: '/become-seller',
+  path: '/become-seller',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CategoriesRoute = CategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ElectronicsRoute = ElectronicsRouteImport.update({
+  id: '/electronics',
+  path: '/electronics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FashionRoute = FashionRouteImport.update({
+  id: '/fashion',
+  path: '/fashion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturedRoute = FeaturedRouteImport.update({
+  id: '/featured',
+  path: '/featured',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeLivingRoute = HomeLivingRouteImport.update({
+  id: '/home-living',
+  path: '/home-living',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestorsRoute = InvestorsRouteImport.update({
+  id: '/investors',
+  path: '/investors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnershipsRoute = PartnershipsRouteImport.update({
+  id: '/partnerships',
+  path: '/partnerships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealEstateRoute = RealEstateRouteImport.update({
+  id: '/real-estate',
+  path: '/real-estate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellerRoute = SellerRouteImport.update({
+  id: '/seller',
+  path: '/seller',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsRoute = SportsRouteImport.update({
+  id: '/sports',
+  path: '/sports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VehiclesRoute = VehiclesRouteImport.update({
+  id: '/vehicles',
+  path: '/vehicles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountIndexRoute = AccountIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountInquiriesRoute = AccountInquiriesRouteImport.update({
+  id: '/inquiries',
+  path: '/inquiries',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountOrdersRoute = AccountOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountProfileRoute = AccountProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountPropertiesRoute = AccountPropertiesRouteImport.update({
+  id: '/properties',
+  path: '/properties',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountSettingsRoute = AccountSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountWishlistRoute = AccountWishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminApprovalsRoute = AdminApprovalsRouteImport.update({
+  id: '/approvals',
+  path: '/approvals',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCategoriesRoute = AdminCategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminListingsRoute = AdminListingsRouteImport.update({
+  id: '/listings',
+  path: '/listings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminOrdersRoute = AdminOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSellersRoute = AdminSellersRouteImport.update({
+  id: '/sellers',
+  path: '/sellers',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const ListingIdRoute = ListingIdRouteImport.update({
+  id: '/listing/$id',
+  path: '/listing/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellerIndexRoute = SellerIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerAddRoute = SellerAddRouteImport.update({
+  id: '/add',
+  path: '/add',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerAnalyticsRoute = SellerAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerInquiriesRoute = SellerInquiriesRouteImport.update({
+  id: '/inquiries',
+  path: '/inquiries',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerListingsRoute = SellerListingsRouteImport.update({
+  id: '/listings',
+  path: '/listings',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerOrdersRoute = SellerOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerPlansRoute = SellerPlansRouteImport.update({
+  id: '/plans',
+  path: '/plans',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerProfileRoute = SellerProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerSettingsRoute = SellerSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => SellerRoute,
+} as any)
+const StoreIdRoute = StoreIdRouteImport.update({
+  id: '/store/$id',
+  path: '/store/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountOrdersIdRoute = AccountOrdersIdRouteImport.update({
+  id: '/orders_/$id',
+  path: '/orders/$id',
+  getParentRoute: () => AccountRoute,
+} as any)
+const SellerListingsIdEditRoute = SellerListingsIdEditRouteImport.update({
+  id: '/listings_/$id/edit',
+  path: '/listings/$id/edit',
+  getParentRoute: () => SellerRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/account': typeof AccountRouteWithChildren
+  '/admin': typeof AdminRouteWithChildren
+  '/become-seller': typeof BecomeSellerRoute
+  '/cart': typeof CartRoute
+  '/categories': typeof CategoriesRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/electronics': typeof ElectronicsRoute
+  '/faq': typeof FaqRoute
+  '/fashion': typeof FashionRoute
+  '/featured': typeof FeaturedRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/help': typeof HelpRoute
+  '/home-living': typeof HomeLivingRoute
+  '/investors': typeof InvestorsRoute
+  '/login': typeof LoginRoute
+  '/partnerships': typeof PartnershipsRoute
+  '/real-estate': typeof RealEstateRoute
+  '/register': typeof RegisterRoute
+  '/search': typeof SearchRoute
+  '/seller': typeof SellerRouteWithChildren
+  '/services': typeof ServicesRoute
+  '/sports': typeof SportsRoute
+  '/vehicles': typeof VehiclesRoute
+  '/wishlist': typeof WishlistRoute
+  '/account/inquiries': typeof AccountInquiriesRoute
+  '/account/orders': typeof AccountOrdersRoute
+  '/account/profile': typeof AccountProfileRoute
+  '/account/properties': typeof AccountPropertiesRoute
+  '/account/settings': typeof AccountSettingsRoute
+  '/account/wishlist': typeof AccountWishlistRoute
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/listings': typeof AdminListingsRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/sellers': typeof AdminSellersRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/listing/$id': typeof ListingIdRoute
+  '/seller/add': typeof SellerAddRoute
+  '/seller/analytics': typeof SellerAnalyticsRoute
+  '/seller/inquiries': typeof SellerInquiriesRoute
+  '/seller/listings': typeof SellerListingsRoute
+  '/seller/orders': typeof SellerOrdersRoute
+  '/seller/plans': typeof SellerPlansRoute
+  '/seller/profile': typeof SellerProfileRoute
+  '/seller/settings': typeof SellerSettingsRoute
+  '/store/$id': typeof StoreIdRoute
+  '/account/': typeof AccountIndexRoute
+  '/admin/': typeof AdminIndexRoute
+  '/seller/': typeof SellerIndexRoute
+  '/account/orders/$id': typeof AccountOrdersIdRoute
+  '/seller/listings/$id/edit': typeof SellerListingsIdEditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/become-seller': typeof BecomeSellerRoute
+  '/cart': typeof CartRoute
+  '/categories': typeof CategoriesRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/electronics': typeof ElectronicsRoute
+  '/faq': typeof FaqRoute
+  '/fashion': typeof FashionRoute
+  '/featured': typeof FeaturedRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/help': typeof HelpRoute
+  '/home-living': typeof HomeLivingRoute
+  '/investors': typeof InvestorsRoute
+  '/login': typeof LoginRoute
+  '/partnerships': typeof PartnershipsRoute
+  '/real-estate': typeof RealEstateRoute
+  '/register': typeof RegisterRoute
+  '/search': typeof SearchRoute
+  '/services': typeof ServicesRoute
+  '/sports': typeof SportsRoute
+  '/vehicles': typeof VehiclesRoute
+  '/wishlist': typeof WishlistRoute
+  '/account/inquiries': typeof AccountInquiriesRoute
+  '/account/orders': typeof AccountOrdersRoute
+  '/account/profile': typeof AccountProfileRoute
+  '/account/properties': typeof AccountPropertiesRoute
+  '/account/settings': typeof AccountSettingsRoute
+  '/account/wishlist': typeof AccountWishlistRoute
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/listings': typeof AdminListingsRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/sellers': typeof AdminSellersRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/listing/$id': typeof ListingIdRoute
+  '/seller/add': typeof SellerAddRoute
+  '/seller/analytics': typeof SellerAnalyticsRoute
+  '/seller/inquiries': typeof SellerInquiriesRoute
+  '/seller/listings': typeof SellerListingsRoute
+  '/seller/orders': typeof SellerOrdersRoute
+  '/seller/plans': typeof SellerPlansRoute
+  '/seller/profile': typeof SellerProfileRoute
+  '/seller/settings': typeof SellerSettingsRoute
+  '/store/$id': typeof StoreIdRoute
+  '/account': typeof AccountIndexRoute
+  '/admin': typeof AdminIndexRoute
+  '/seller': typeof SellerIndexRoute
+  '/account/orders/$id': typeof AccountOrdersIdRoute
+  '/seller/listings/$id/edit': typeof SellerListingsIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/account': typeof AccountRouteWithChildren
+  '/admin': typeof AdminRouteWithChildren
+  '/become-seller': typeof BecomeSellerRoute
+  '/cart': typeof CartRoute
+  '/categories': typeof CategoriesRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/electronics': typeof ElectronicsRoute
+  '/faq': typeof FaqRoute
+  '/fashion': typeof FashionRoute
+  '/featured': typeof FeaturedRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/help': typeof HelpRoute
+  '/home-living': typeof HomeLivingRoute
+  '/investors': typeof InvestorsRoute
+  '/login': typeof LoginRoute
+  '/partnerships': typeof PartnershipsRoute
+  '/real-estate': typeof RealEstateRoute
+  '/register': typeof RegisterRoute
+  '/search': typeof SearchRoute
+  '/seller': typeof SellerRouteWithChildren
+  '/services': typeof ServicesRoute
+  '/sports': typeof SportsRoute
+  '/vehicles': typeof VehiclesRoute
+  '/wishlist': typeof WishlistRoute
+  '/account/inquiries': typeof AccountInquiriesRoute
+  '/account/orders': typeof AccountOrdersRoute
+  '/account/profile': typeof AccountProfileRoute
+  '/account/properties': typeof AccountPropertiesRoute
+  '/account/settings': typeof AccountSettingsRoute
+  '/account/wishlist': typeof AccountWishlistRoute
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/listings': typeof AdminListingsRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/sellers': typeof AdminSellersRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/listing/$id': typeof ListingIdRoute
+  '/seller/add': typeof SellerAddRoute
+  '/seller/analytics': typeof SellerAnalyticsRoute
+  '/seller/inquiries': typeof SellerInquiriesRoute
+  '/seller/listings': typeof SellerListingsRoute
+  '/seller/orders': typeof SellerOrdersRoute
+  '/seller/plans': typeof SellerPlansRoute
+  '/seller/profile': typeof SellerProfileRoute
+  '/seller/settings': typeof SellerSettingsRoute
+  '/store/$id': typeof StoreIdRoute
+  '/account/': typeof AccountIndexRoute
+  '/admin/': typeof AdminIndexRoute
+  '/seller/': typeof SellerIndexRoute
+  '/account/orders_/$id': typeof AccountOrdersIdRoute
+  '/seller/listings_/$id/edit': typeof SellerListingsIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/account'
+    | '/admin'
+    | '/become-seller'
+    | '/cart'
+    | '/categories'
+    | '/checkout'
+    | '/contact'
+    | '/electronics'
+    | '/faq'
+    | '/fashion'
+    | '/featured'
+    | '/forgot-password'
+    | '/help'
+    | '/home-living'
+    | '/investors'
+    | '/login'
+    | '/partnerships'
+    | '/real-estate'
+    | '/register'
+    | '/search'
+    | '/seller'
+    | '/services'
+    | '/sports'
+    | '/vehicles'
+    | '/wishlist'
+    | '/account/inquiries'
+    | '/account/orders'
+    | '/account/profile'
+    | '/account/properties'
+    | '/account/settings'
+    | '/account/wishlist'
+    | '/admin/approvals'
+    | '/admin/categories'
+    | '/admin/listings'
+    | '/admin/orders'
+    | '/admin/reports'
+    | '/admin/sellers'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/listing/$id'
+    | '/seller/add'
+    | '/seller/analytics'
+    | '/seller/inquiries'
+    | '/seller/listings'
+    | '/seller/orders'
+    | '/seller/plans'
+    | '/seller/profile'
+    | '/seller/settings'
+    | '/store/$id'
+    | '/account/'
+    | '/admin/'
+    | '/seller/'
+    | '/account/orders/$id'
+    | '/seller/listings/$id/edit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/become-seller'
+    | '/cart'
+    | '/categories'
+    | '/checkout'
+    | '/contact'
+    | '/electronics'
+    | '/faq'
+    | '/fashion'
+    | '/featured'
+    | '/forgot-password'
+    | '/help'
+    | '/home-living'
+    | '/investors'
+    | '/login'
+    | '/partnerships'
+    | '/real-estate'
+    | '/register'
+    | '/search'
+    | '/services'
+    | '/sports'
+    | '/vehicles'
+    | '/wishlist'
+    | '/account/inquiries'
+    | '/account/orders'
+    | '/account/profile'
+    | '/account/properties'
+    | '/account/settings'
+    | '/account/wishlist'
+    | '/admin/approvals'
+    | '/admin/categories'
+    | '/admin/listings'
+    | '/admin/orders'
+    | '/admin/reports'
+    | '/admin/sellers'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/listing/$id'
+    | '/seller/add'
+    | '/seller/analytics'
+    | '/seller/inquiries'
+    | '/seller/listings'
+    | '/seller/orders'
+    | '/seller/plans'
+    | '/seller/profile'
+    | '/seller/settings'
+    | '/store/$id'
+    | '/account'
+    | '/admin'
+    | '/seller'
+    | '/account/orders/$id'
+    | '/seller/listings/$id/edit'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/account'
+    | '/admin'
+    | '/become-seller'
+    | '/cart'
+    | '/categories'
+    | '/checkout'
+    | '/contact'
+    | '/electronics'
+    | '/faq'
+    | '/fashion'
+    | '/featured'
+    | '/forgot-password'
+    | '/help'
+    | '/home-living'
+    | '/investors'
+    | '/login'
+    | '/partnerships'
+    | '/real-estate'
+    | '/register'
+    | '/search'
+    | '/seller'
+    | '/services'
+    | '/sports'
+    | '/vehicles'
+    | '/wishlist'
+    | '/account/inquiries'
+    | '/account/orders'
+    | '/account/profile'
+    | '/account/properties'
+    | '/account/settings'
+    | '/account/wishlist'
+    | '/admin/approvals'
+    | '/admin/categories'
+    | '/admin/listings'
+    | '/admin/orders'
+    | '/admin/reports'
+    | '/admin/sellers'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/listing/$id'
+    | '/seller/add'
+    | '/seller/analytics'
+    | '/seller/inquiries'
+    | '/seller/listings'
+    | '/seller/orders'
+    | '/seller/plans'
+    | '/seller/profile'
+    | '/seller/settings'
+    | '/store/$id'
+    | '/account/'
+    | '/admin/'
+    | '/seller/'
+    | '/account/orders_/$id'
+    | '/seller/listings_/$id/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AccountRoute: typeof AccountRouteWithChildren
+  AdminRoute: typeof AdminRouteWithChildren
+  BecomeSellerRoute: typeof BecomeSellerRoute
+  CartRoute: typeof CartRoute
+  CategoriesRoute: typeof CategoriesRoute
+  CheckoutRoute: typeof CheckoutRoute
+  ContactRoute: typeof ContactRoute
+  ElectronicsRoute: typeof ElectronicsRoute
+  FaqRoute: typeof FaqRoute
+  FashionRoute: typeof FashionRoute
+  FeaturedRoute: typeof FeaturedRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  HelpRoute: typeof HelpRoute
+  HomeLivingRoute: typeof HomeLivingRoute
+  InvestorsRoute: typeof InvestorsRoute
+  LoginRoute: typeof LoginRoute
+  PartnershipsRoute: typeof PartnershipsRoute
+  RealEstateRoute: typeof RealEstateRoute
+  RegisterRoute: typeof RegisterRoute
+  SearchRoute: typeof SearchRoute
+  SellerRoute: typeof SellerRouteWithChildren
+  ServicesRoute: typeof ServicesRoute
+  SportsRoute: typeof SportsRoute
+  VehiclesRoute: typeof VehiclesRoute
+  WishlistRoute: typeof WishlistRoute
+  ListingIdRoute: typeof ListingIdRoute
+  StoreIdRoute: typeof StoreIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +734,504 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/become-seller': {
+      id: '/become-seller'
+      path: '/become-seller'
+      fullPath: '/become-seller'
+      preLoaderRoute: typeof BecomeSellerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/categories': {
+      id: '/categories'
+      path: '/categories'
+      fullPath: '/categories'
+      preLoaderRoute: typeof CategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/electronics': {
+      id: '/electronics'
+      path: '/electronics'
+      fullPath: '/electronics'
+      preLoaderRoute: typeof ElectronicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fashion': {
+      id: '/fashion'
+      path: '/fashion'
+      fullPath: '/fashion'
+      preLoaderRoute: typeof FashionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/featured': {
+      id: '/featured'
+      path: '/featured'
+      fullPath: '/featured'
+      preLoaderRoute: typeof FeaturedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home-living': {
+      id: '/home-living'
+      path: '/home-living'
+      fullPath: '/home-living'
+      preLoaderRoute: typeof HomeLivingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investors': {
+      id: '/investors'
+      path: '/investors'
+      fullPath: '/investors'
+      preLoaderRoute: typeof InvestorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partnerships': {
+      id: '/partnerships'
+      path: '/partnerships'
+      fullPath: '/partnerships'
+      preLoaderRoute: typeof PartnershipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/real-estate': {
+      id: '/real-estate'
+      path: '/real-estate'
+      fullPath: '/real-estate'
+      preLoaderRoute: typeof RealEstateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seller': {
+      id: '/seller'
+      path: '/seller'
+      fullPath: '/seller'
+      preLoaderRoute: typeof SellerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports': {
+      id: '/sports'
+      path: '/sports'
+      fullPath: '/sports'
+      preLoaderRoute: typeof SportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vehicles': {
+      id: '/vehicles'
+      path: '/vehicles'
+      fullPath: '/vehicles'
+      preLoaderRoute: typeof VehiclesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account/': {
+      id: '/account/'
+      path: '/'
+      fullPath: '/account/'
+      preLoaderRoute: typeof AccountIndexRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/inquiries': {
+      id: '/account/inquiries'
+      path: '/inquiries'
+      fullPath: '/account/inquiries'
+      preLoaderRoute: typeof AccountInquiriesRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/orders': {
+      id: '/account/orders'
+      path: '/orders'
+      fullPath: '/account/orders'
+      preLoaderRoute: typeof AccountOrdersRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/profile': {
+      id: '/account/profile'
+      path: '/profile'
+      fullPath: '/account/profile'
+      preLoaderRoute: typeof AccountProfileRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/properties': {
+      id: '/account/properties'
+      path: '/properties'
+      fullPath: '/account/properties'
+      preLoaderRoute: typeof AccountPropertiesRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/settings': {
+      id: '/account/settings'
+      path: '/settings'
+      fullPath: '/account/settings'
+      preLoaderRoute: typeof AccountSettingsRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/wishlist': {
+      id: '/account/wishlist'
+      path: '/wishlist'
+      fullPath: '/account/wishlist'
+      preLoaderRoute: typeof AccountWishlistRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/approvals': {
+      id: '/admin/approvals'
+      path: '/approvals'
+      fullPath: '/admin/approvals'
+      preLoaderRoute: typeof AdminApprovalsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/categories': {
+      id: '/admin/categories'
+      path: '/categories'
+      fullPath: '/admin/categories'
+      preLoaderRoute: typeof AdminCategoriesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/listings': {
+      id: '/admin/listings'
+      path: '/listings'
+      fullPath: '/admin/listings'
+      preLoaderRoute: typeof AdminListingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/orders': {
+      id: '/admin/orders'
+      path: '/orders'
+      fullPath: '/admin/orders'
+      preLoaderRoute: typeof AdminOrdersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/sellers': {
+      id: '/admin/sellers'
+      path: '/sellers'
+      fullPath: '/admin/sellers'
+      preLoaderRoute: typeof AdminSellersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/listing/$id': {
+      id: '/listing/$id'
+      path: '/listing/$id'
+      fullPath: '/listing/$id'
+      preLoaderRoute: typeof ListingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seller/': {
+      id: '/seller/'
+      path: '/'
+      fullPath: '/seller/'
+      preLoaderRoute: typeof SellerIndexRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/add': {
+      id: '/seller/add'
+      path: '/add'
+      fullPath: '/seller/add'
+      preLoaderRoute: typeof SellerAddRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/analytics': {
+      id: '/seller/analytics'
+      path: '/analytics'
+      fullPath: '/seller/analytics'
+      preLoaderRoute: typeof SellerAnalyticsRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/inquiries': {
+      id: '/seller/inquiries'
+      path: '/inquiries'
+      fullPath: '/seller/inquiries'
+      preLoaderRoute: typeof SellerInquiriesRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/listings': {
+      id: '/seller/listings'
+      path: '/listings'
+      fullPath: '/seller/listings'
+      preLoaderRoute: typeof SellerListingsRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/orders': {
+      id: '/seller/orders'
+      path: '/orders'
+      fullPath: '/seller/orders'
+      preLoaderRoute: typeof SellerOrdersRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/plans': {
+      id: '/seller/plans'
+      path: '/plans'
+      fullPath: '/seller/plans'
+      preLoaderRoute: typeof SellerPlansRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/profile': {
+      id: '/seller/profile'
+      path: '/profile'
+      fullPath: '/seller/profile'
+      preLoaderRoute: typeof SellerProfileRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/settings': {
+      id: '/seller/settings'
+      path: '/settings'
+      fullPath: '/seller/settings'
+      preLoaderRoute: typeof SellerSettingsRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/store/$id': {
+      id: '/store/$id'
+      path: '/store/$id'
+      fullPath: '/store/$id'
+      preLoaderRoute: typeof StoreIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account/orders_/$id': {
+      id: '/account/orders_/$id'
+      path: '/orders/$id'
+      fullPath: '/account/orders/$id'
+      preLoaderRoute: typeof AccountOrdersIdRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/seller/listings_/$id/edit': {
+      id: '/seller/listings_/$id/edit'
+      path: '/listings/$id/edit'
+      fullPath: '/seller/listings/$id/edit'
+      preLoaderRoute: typeof SellerListingsIdEditRouteImport
+      parentRoute: typeof SellerRoute
+    }
   }
 }
 
+interface AccountRouteChildren {
+  AccountInquiriesRoute: typeof AccountInquiriesRoute
+  AccountOrdersRoute: typeof AccountOrdersRoute
+  AccountProfileRoute: typeof AccountProfileRoute
+  AccountPropertiesRoute: typeof AccountPropertiesRoute
+  AccountSettingsRoute: typeof AccountSettingsRoute
+  AccountWishlistRoute: typeof AccountWishlistRoute
+  AccountIndexRoute: typeof AccountIndexRoute
+  AccountOrdersIdRoute: typeof AccountOrdersIdRoute
+}
+
+const AccountRouteChildren: AccountRouteChildren = {
+  AccountInquiriesRoute: AccountInquiriesRoute,
+  AccountOrdersRoute: AccountOrdersRoute,
+  AccountProfileRoute: AccountProfileRoute,
+  AccountPropertiesRoute: AccountPropertiesRoute,
+  AccountSettingsRoute: AccountSettingsRoute,
+  AccountWishlistRoute: AccountWishlistRoute,
+  AccountIndexRoute: AccountIndexRoute,
+  AccountOrdersIdRoute: AccountOrdersIdRoute,
+}
+
+const AccountRouteWithChildren =
+  AccountRoute._addFileChildren(AccountRouteChildren)
+
+interface AdminRouteChildren {
+  AdminApprovalsRoute: typeof AdminApprovalsRoute
+  AdminCategoriesRoute: typeof AdminCategoriesRoute
+  AdminListingsRoute: typeof AdminListingsRoute
+  AdminOrdersRoute: typeof AdminOrdersRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminSellersRoute: typeof AdminSellersRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminApprovalsRoute: AdminApprovalsRoute,
+  AdminCategoriesRoute: AdminCategoriesRoute,
+  AdminListingsRoute: AdminListingsRoute,
+  AdminOrdersRoute: AdminOrdersRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminSellersRoute: AdminSellersRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface SellerRouteChildren {
+  SellerAddRoute: typeof SellerAddRoute
+  SellerAnalyticsRoute: typeof SellerAnalyticsRoute
+  SellerInquiriesRoute: typeof SellerInquiriesRoute
+  SellerListingsRoute: typeof SellerListingsRoute
+  SellerOrdersRoute: typeof SellerOrdersRoute
+  SellerPlansRoute: typeof SellerPlansRoute
+  SellerProfileRoute: typeof SellerProfileRoute
+  SellerSettingsRoute: typeof SellerSettingsRoute
+  SellerIndexRoute: typeof SellerIndexRoute
+  SellerListingsIdEditRoute: typeof SellerListingsIdEditRoute
+}
+
+const SellerRouteChildren: SellerRouteChildren = {
+  SellerAddRoute: SellerAddRoute,
+  SellerAnalyticsRoute: SellerAnalyticsRoute,
+  SellerInquiriesRoute: SellerInquiriesRoute,
+  SellerListingsRoute: SellerListingsRoute,
+  SellerOrdersRoute: SellerOrdersRoute,
+  SellerPlansRoute: SellerPlansRoute,
+  SellerProfileRoute: SellerProfileRoute,
+  SellerSettingsRoute: SellerSettingsRoute,
+  SellerIndexRoute: SellerIndexRoute,
+  SellerListingsIdEditRoute: SellerListingsIdEditRoute,
+}
+
+const SellerRouteWithChildren =
+  SellerRoute._addFileChildren(SellerRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AccountRoute: AccountRouteWithChildren,
+  AdminRoute: AdminRouteWithChildren,
+  BecomeSellerRoute: BecomeSellerRoute,
+  CartRoute: CartRoute,
+  CategoriesRoute: CategoriesRoute,
+  CheckoutRoute: CheckoutRoute,
+  ContactRoute: ContactRoute,
+  ElectronicsRoute: ElectronicsRoute,
+  FaqRoute: FaqRoute,
+  FashionRoute: FashionRoute,
+  FeaturedRoute: FeaturedRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  HelpRoute: HelpRoute,
+  HomeLivingRoute: HomeLivingRoute,
+  InvestorsRoute: InvestorsRoute,
+  LoginRoute: LoginRoute,
+  PartnershipsRoute: PartnershipsRoute,
+  RealEstateRoute: RealEstateRoute,
+  RegisterRoute: RegisterRoute,
+  SearchRoute: SearchRoute,
+  SellerRoute: SellerRouteWithChildren,
+  ServicesRoute: ServicesRoute,
+  SportsRoute: SportsRoute,
+  VehiclesRoute: VehiclesRoute,
+  WishlistRoute: WishlistRoute,
+  ListingIdRoute: ListingIdRoute,
+  StoreIdRoute: StoreIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
