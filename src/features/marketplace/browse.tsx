@@ -227,6 +227,7 @@ export function BrowsePage({
               ...new Set(listings.filter((l) => l.category === "vehicles").map((l) => l.brand)),
             ]}
           />
+          <SelectFilter label="Model" name="model" options={[...new Set(listings.filter((l) => l.category === "vehicles" && l.model).map((l) => l.model as string))]} />
           <SelectFilter
             label="Year"
             name="year"
@@ -408,7 +409,6 @@ export function SavedPage({ properties = false }: { properties?: boolean }) {
             title="Your next favorite is out there."
             description="Save a listing with the heart icon and find it here whenever you need it."
           />
-          <SelectFilter label="Model" name="model" options={['RAV4', 'Corolla', 'Prado', 'Hilux']} />
         )}
       </div>
     </div>
