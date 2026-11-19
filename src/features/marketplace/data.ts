@@ -70,8 +70,8 @@ const re = (
   const furnished = n % 2 === 0;
   return {
     purpose,
-    bedrooms: b || undefined,
-    bathrooms: ba || undefined,
+    ...(b ? { bedrooms: b } : {}),
+    ...(ba ? { bathrooms: ba } : {}),
     size: area,
     furnished,
     specs: {
@@ -324,7 +324,7 @@ export const initialListings: Listing[] = categoryMeta.flatMap((c) => {
         description: describe(c.id, sub, t, location),
         seller: sub.seller,
         brand: t.brand,
-        model: t.model,
+        ...(t.model ? { model: t.model } : {}),
         condition: c.id === "services" ? "Service" : n % 4 === 3 ? "Used — excellent" : "New",
         featured: n === 0 && si < 4,
         status: idx === subs.length * LISTINGS_PER_SUB - 1 ? "pending" : "active",
