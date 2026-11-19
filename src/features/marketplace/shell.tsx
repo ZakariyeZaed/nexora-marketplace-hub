@@ -1,3 +1,4 @@
+import { CurrencySelect, RATES_NOTE } from "./currency";
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import {
@@ -78,6 +79,7 @@ export function MarketplaceShell({ children }: { children: ReactNode }) {
             </Button>
           </form>
           <div className="header-actions">
+            <CurrencySelect className="currency-select" />
             <Link className="account-link" to={store.user ? "/account" : "/login"}>
               <UserRound size={21} />
               <div>
@@ -178,15 +180,15 @@ export function MarketplaceShell({ children }: { children: ReactNode }) {
                 value={store.language}
                 onChange={(e) => store.setLanguage(e.target.value)}
               >
-                <option value="en">English · ETB</option>
-                <option value="am">አማርኛ · ETB</option>
+                <option value="en">English</option>
+                <option value="am">አማርኛ</option>
               </select>
             </div>
           </div>
           <div className="footer-bottom">
             <span>© 2026 NEXORA. Made for Ethiopia.</span>
             <span>All listings, stores, and transactions are demonstration content.</span>
-            <span>English &nbsp; | &nbsp; ETB</span>
+            <span>{RATES_NOTE}</span>
           </div>
         </div>
       </footer>
@@ -195,6 +197,9 @@ export function MarketplaceShell({ children }: { children: ReactNode }) {
           <DialogTitle>NEXORA</DialogTitle>
           <DialogDescription>Your Ethiopian marketplace</DialogDescription>
           <div className="flex flex-col gap-4">
+            <label className="form-label" htmlFor="mobile-currency">Currency</label>
+            <CurrencySelect />
+            <p className="form-help">{RATES_NOTE}</p>
             <Link to="/login" onClick={() => setMenu(false)}>
               Sign in / Register
             </Link>

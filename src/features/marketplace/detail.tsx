@@ -1,3 +1,4 @@
+import { Money } from "./currency";
 import { useState, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { Heart, MapPin, MessageCircle, ShoppingBag, Minus, Plus, Share2 } from "lucide-react";
@@ -106,7 +107,7 @@ export function DetailPage({ id }: { id: string }) {
             {listing.location}, Addis Ababa, Ethiopia
           </p>
           <p className="listing-price">
-            {currency(listing.price)}
+            <Money value={listing.price} />
             {listing.purpose === "Rent" && (
               <small> / {listing.category === "vehicles" ? "day" : "month"}</small>
             )}

@@ -4,6 +4,7 @@ import { SlidersHorizontal, LayoutGrid, List, Search, RotateCcw, ArrowRight } fr
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useMarketplace } from "./store";
+import { convertToEtb, useCurrency } from "./currency";
 import { categories, neighborhoods, sellers, type CategoryId } from "./data";
 import { filterListings, type Filters } from "./logic";
 import { Breadcrumbs, CategoryTiles, PageHeading, ListingGrid, EmptyState } from "./components";
@@ -27,7 +28,7 @@ export function CategoriesPage() {
             <ul className="text-xs text-muted-foreground leading-8 mt-3">
               {c.types.map((t) => (
                 <li key={t}>
-                  <Link to="/search" search={{ q: t, category: c.id }}>{t}</Link>
+                  <Link to={c.href} search={{ type: t }}>{t}</Link>
                 </li>
               ))}
             </ul>
@@ -43,7 +44,9 @@ export function BrowsePage({
   query = "",
   searchCategory = "",
   sellerId,
+  initialType,
 }: {
+  initialType?: string | undefined;
   category?: CategoryId;
   featured?: boolean;
   query?: string;
@@ -55,6 +58,7 @@ export function BrowsePage({
       query,
       category: category ?? searchCategory,
       seller: sellerId,
+      type: initialType,
       sort: "newest",
     }),
     [limit, setLimit] = useState(12),
@@ -72,7 +76,13 @@ export function BrowsePage({
         : query
           ? `Results for “${query}”`
           : "Explore the marketplace";
-  const results = filterListings(featured ? listings.filter((l) => l.featured) : listings, filters);
+  const { code } = useCurrency();
+  const toEtb = (v?: string) => (v ? String(convertToEtb(Number(v), code)) : undefined);
+  const results = filterListings(featured ? listings.filter((l) => l.featured) : listings, {
+    ...filters,
+    minPrice: toEtb(filters.minPrice),
+    maxPrice: toEtb(filters.maxPrice),
+  });
   const update = (key: keyof Filters, value: string) => {
     setFilters((f) => ({ ...f, [key]: value }));
     setLimit(12);
@@ -161,14 +171,14 @@ export function BrowsePage({
                 ? "Property type"
                 : category === "services"
                   ? "Service type"
-                  : "Product type"
+                  : "Subcategory"
           }
           name="type"
           options={cat.types}
         />
       )}
       <div className="filter-group">
-        <label>Price range (ETB)</label>
+        <label>Price range ({code})</label>
         <div className="flex gap-2">
           <input
             type="number"
@@ -302,6 +312,26 @@ export function BrowsePage({
               "Discover standout listings, fresh arrivals, and local favorites. All listings are sample content.")
         }
       />
+      {cat && (
+        <div className="subcategory-grid" aria-label={`${cat.name} subcategories`}>
+          {cat.subcategories.map((sub) => (
+            <button
+              type="button"
+              key={sub.slug}
+              className="subcategory-card"
+              data-active={filters.type === sub.name}
+              aria-pressed={filters.type === sub.name}
+              onClick={() => update("type", filters.type === sub.name ? "" : sub.name)}
+            >
+              <img src={sub.image} alt={sub.name} width={1024} height={768} loading="lazy" />
+              <div>
+                <h3>{sub.name}</h3>
+                <p>{sub.description}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
       <div className="browse-layout">
           <aside className="filter-sidebar">{!mobile && filterContent}</aside>
         <div>

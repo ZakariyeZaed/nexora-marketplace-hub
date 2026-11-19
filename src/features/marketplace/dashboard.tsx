@@ -1,3 +1,4 @@
+import { Money, CurrencySelect, RATES_NOTE } from "./currency";
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
 import {
@@ -157,7 +158,7 @@ function DashboardHeading({
     </div>
   );
 }
-function Stats({ items }: { items: { label: string; value: string; detail: string }[] }) {
+function Stats({ items }: { items: { label: string; value: ReactNode; detail: string }[] }) {
   return (
     <div className="stats-grid">
       {items.map((i) => (
@@ -253,7 +254,7 @@ export function DashboardOverview({ role }: { role: DashboardRole }) {
         ]
       : role === "seller"
         ? [
-            { label: "Demo revenue", value: currency(125000), detail: "Simulated November sales" },
+            { label: "Demo revenue", value: <Money value={125000} />, detail: "Simulated November sales" },
             {
               label: "Active listings",
               value: String(
@@ -340,7 +341,7 @@ export function DashboardOverview({ role }: { role: DashboardRole }) {
               <h2 className="text-lg font-semibold">
                 {role === "seller" ? "Sales at a glance" : "Marketplace activity"}
               </h2>
-              <p className="section-subtitle">Simulated June–November 2026 · ETB</p>
+              <p className="section-subtitle">Simulated June–November 2026 · stored in ETB, shown in your currency</p>
             </div>
             <Link
               to={role === "seller" ? "/seller/analytics" : "/admin/reports"}
@@ -471,7 +472,7 @@ function ListingTable({
                         <span>{l.title}</span>
                       </Link>
                     </td>
-                    <td className="whitespace-nowrap">{currency(l.price)}</td>
+                    <td className="whitespace-nowrap"><Money value={l.price} /></td>
                     <td>
                       <span className={`status ${l.status}`}>{l.status}</span>
                     </td>
@@ -708,7 +709,7 @@ export function ListingForm({ id }: { id?: string }) {
                 ))}
               </select>
             </div>
-            {input("Price (ETB)", "price", "number", existing?.price)}
+            {input("Price (ETB, base currency)", "price", "number", existing?.price)}
             <div>
               <label htmlFor="listing-location" className="form-label">
                 Neighborhood
@@ -903,7 +904,7 @@ function OrdersTable({ compact = false }: { compact?: boolean }) {
               <td>{o.id}</td>
               <td>{new Date(o.date).toLocaleDateString("en-GB")}</td>
               <td>{o.items.reduce((n, i) => n + i.quantity, 0)}</td>
-              <td className="whitespace-nowrap">{currency(o.total)}</td>
+              <td className="whitespace-nowrap"><Money value={o.total} /></td>
               <td>
                 <span className="status completed">{o.status}</span>
               </td>
@@ -960,13 +961,13 @@ export function OrderDetail({ id }: { id: string }) {
                   {item.variant ? ` · Size ${item.variant}` : ""}
                 </p>
               </div>
-              <strong className="ml-auto">{currency((l?.price ?? 0) * item.quantity)}</strong>
+              <strong className="ml-auto"><Money value={(l?.price ?? 0) * item.quantity} /></strong>
             </div>
           );
         })}
         <div className="summary-row summary-total">
           <span>Demo total</span>
-          <span>{currency(o.total)}</span>
+          <span><Money value={o.total} /></span>
         </div>
       </div>
     </>
@@ -1249,6 +1250,11 @@ export function SettingsPage({ role }: { role: DashboardRole }) {
             <option value="en">English</option>
             <option value="am">አማርኛ (preview — translations coming soon)</option>
           </select>
+          <label htmlFor="settings-currency" className="form-label mt-6">
+            Preferred currency
+          </label>
+          <div className="max-w-sm"><CurrencySelect /></div>
+          <p className="form-help mt-2">{RATES_NOTE}</p>
         </div>
         <p className="form-help">
           These preferences are demonstration only. No real services are configured.
@@ -1283,10 +1289,10 @@ export function AnalyticsPage({ admin = false }: { admin?: boolean }) {
       />
       <Stats
         items={[
-          { label: "Demo revenue", value: currency(481000), detail: "Simulated 6-month total" },
+          { label: "Demo revenue", value: <Money value={481000} />, detail: "Simulated 6-month total" },
           { label: "Demo orders", value: "64", detail: "Sample sales volume" },
           { label: "Sample conversion", value: "3.2%", detail: "Illustrative only" },
-          { label: "Demo average order", value: currency(7515), detail: "Illustrative only" },
+          { label: "Demo average order", value: <Money value={7515} />, detail: "Illustrative only" },
         ]}
       />
       <h2 className="text-lg font-semibold">Demo revenue by month</h2>
@@ -1307,7 +1313,7 @@ export function AnalyticsPage({ admin = false }: { admin?: boolean }) {
             {salesData.map((d) => (
               <tr key={d.month}>
                 <td>{d.month} 2026</td>
-                <td>{currency(d.revenue)}</td>
+                <td><Money value={d.revenue} /></td>
                 <td>Simulated dataset</td>
               </tr>
             ))}

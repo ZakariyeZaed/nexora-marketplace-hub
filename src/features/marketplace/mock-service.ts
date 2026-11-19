@@ -5,5 +5,5 @@ export const marketplaceClient = {
   search: (filters: Filters, listings: Listing[] = initialListings) =>
     filterListings(listings, filters),
   detail: (id: string, listings: Listing[] = initialListings) => listings.find((l) => l.id === id),
-  storageKey: "nexora-marketplace-demo-v1",
+  storageKey: "nexora-marketplace-demo-v2",
 };

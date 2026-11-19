@@ -1,3 +1,4 @@
+import { Money } from "./currency";
 import { Link } from "@tanstack/react-router";
 import {
   Building2,
@@ -112,7 +113,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
           {listing.location}, Addis Ababa
         </p>
         <p className="listing-price">
-          {currency(listing.price)}
+          <Money value={listing.price} />
           {listing.purpose === "Rent" && (
             <small> / {listing.category === "vehicles" ? "day" : "month"}</small>
           )}

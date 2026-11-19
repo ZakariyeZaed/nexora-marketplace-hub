@@ -1,3 +1,4 @@
+import { Money } from "./currency";
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import {
@@ -40,7 +41,7 @@ export function CartPage() {
                     <Link to="/listing/$id" params={{ id: l.id }}>
                       <h3>{l.title}</h3>
                     </Link>
-                    <p className="text-xs font-semibold">{currency(l.price)}</p>
+                    <p className="text-xs font-semibold"><Money value={l.price} /></p>
                     <p className="form-help mt-1">
                       {item.variant ? `Size ${item.variant} · ` : ""}
                       {l.location} · Demo listing
@@ -88,7 +89,7 @@ export function CartPage() {
             <h2>Your bag summary</h2>
             <div className="summary-row">
               <span>Subtotal</span>
-              <strong>{currency(total)}</strong>
+              <strong><Money value={total} /></strong>
             </div>
             <div className="summary-row">
               <span>Demo delivery</span>
@@ -96,7 +97,7 @@ export function CartPage() {
             </div>
             <div className="summary-row summary-total">
               <span>Total</span>
-              <span>{currency(total)}</span>
+              <span><Money value={total} /></span>
             </div>
             <Button asChild className="w-full mt-6 h-11">
               <Link to="/checkout">
@@ -248,7 +249,7 @@ export function CheckoutPage() {
           ))}
           <div className="summary-row summary-total">
             <span>Total</span>
-            <span>{currency(total)}</span>
+            <span><Money value={total} /></span>
           </div>
           <p className="form-help mt-4">Payment method: demonstration only.</p>
         </aside>

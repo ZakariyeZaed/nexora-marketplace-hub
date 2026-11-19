@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { z } from "zod";
 import { BrowsePage } from "@/features/marketplace/browse";
 import { pageHead } from "@/features/marketplace/data";
 export const Route = createFileRoute("/fashion")({
+  validateSearch: z.object({ type: z.string().optional() }),
   head: () =>
     pageHead(
       "Fashion",
@@ -10,5 +12,6 @@ export const Route = createFileRoute("/fashion")({
   component: Page,
 });
 function Page() {
-  return <BrowsePage category="fashion" />;
+  const { type } = Route.useSearch();
+  return <BrowsePage key={type ?? ""} category="fashion" initialType={type} />;
 }
