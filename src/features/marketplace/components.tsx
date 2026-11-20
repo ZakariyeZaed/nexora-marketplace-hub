@@ -144,7 +144,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
                 <Fuel />
                 {listing.fuel}
               </span>
-              <span>Automatic</span>
+               <span>{listing.transmission}</span>
             </>
           ) : (
             <>

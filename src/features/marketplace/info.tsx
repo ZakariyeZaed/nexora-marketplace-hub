@@ -284,13 +284,13 @@ function InterestForm({ kind }: { kind: string }) {
           <label className="form-label" htmlFor="interest-name">
             Your name
           </label>
-          <input className="field" id="interest-name" required />
+          <input className="field" id="interest-name" name="name" required />
         </div>
         <div>
           <label className="form-label" htmlFor="interest-email">
             Email
           </label>
-          <input className="field" id="interest-email" type="email" required />
+          <input className="field" id="interest-email" name="email" type="email" required />
         </div>
         <div className="full">
           <label className="form-label" htmlFor="interest-company">
@@ -303,7 +303,7 @@ function InterestForm({ kind }: { kind: string }) {
           <label className="form-label" htmlFor="interest-message">
             Tell us a little more
           </label>
-          <textarea className="field" id="interest-message" required minLength={10} />
+          <textarea className="field" id="interest-message" name="message" required minLength={10} />
         </div>
       </div>
       <Button type="submit">
@@ -341,7 +341,7 @@ export function ContactPage() {
                 <label htmlFor="contact-email" className="form-label">
                   Email address
                 </label>
-                <input id="contact-email" className="field" type="email" required />
+                <input id="contact-email" name="email" className="field" type="email" required />
               </div>
               {field("contact-phone", "Phone", { type: "tel", required: false })}
               {field("contact-topic", "Inquiry subject")}
@@ -349,7 +349,7 @@ export function ContactPage() {
                 <label htmlFor="contact-subject" className="form-label">
                   Inquiry type
                 </label>
-                <select id="contact-subject" className="field">
+                <select id="contact-subject" name="type" className="field">
                   <option>Customer support</option>
                   <option>Seller support</option>
                   <option>Business inquiry</option>
@@ -361,7 +361,7 @@ export function ContactPage() {
                 <label htmlFor="contact-message" className="form-label">
                   Your message
                 </label>
-                <textarea id="contact-message" className="field" required minLength={10} />
+                <textarea id="contact-message" name="message" className="field" required minLength={10} />
               </div>
             </div>
             <Button type="submit" size="lg">
@@ -466,13 +466,13 @@ export function HelpPage({ faq = false }: { faq?: boolean }) {
         <>
           <div className="seller-grid mb-10">
             {articles.filter((a) => match(a.topic, a.title, a.body)).map((a) => (
-              <button type="button" key={a.title} className="seller-card text-left" onClick={() => setOpen(a)}>
+              <Button variant="ghost" key={a.title} className="seller-card text-left h-auto whitespace-normal justify-start" onClick={() => setOpen(a)}>
                 <ShoppingHelpIcon />
                 <div>
                   <h3>{a.topic}</h3>
                   <p>{a.title}</p>
                 </div>
-              </button>
+              </Button>
             ))}
           </div>
           {open && (
@@ -509,7 +509,7 @@ export function HelpPage({ faq = false }: { faq?: boolean }) {
           ))}
         </div>
       )}
-      {term && !articles.some((a) => match(a.topic, a.title, a.body)) && !faqs.some(([x, y]) => match(x ?? "", y ?? "")) && (
+      {term && (faq ? !Object.entries(faqGroups).some(([group, items]) => items.some(([question, answer]) => match(group, question, answer))) : !articles.some((a) => match(a.topic, a.title, a.body))) && (
         <p className="section-subtitle pb-12">No results for “{q}”. Try another word or <Link to="/contact" className="underline">contact us</Link>.</p>
       )}
     </div>

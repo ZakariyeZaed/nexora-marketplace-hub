@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { initialListings, currency, categories } from "./data";
-import { formatMoney, convertToEtb } from "./currency";
+import { formatMoney, convertToEtb, getCurrency, setCurrency } from "./currency";
 import { canAddToCart, cartTotal, changeQuantity, filterListings } from "./logic";
 
 describe("NEXORA marketplace rules", () => {
@@ -11,6 +11,13 @@ describe("NEXORA marketplace rules", () => {
     expect(formatMoney(155000, "USD")).toBe("USD 1,000");
     expect(formatMoney(1550, "USD")).toBe("USD 10.00");
     expect(convertToEtb(10, "EUR")).toBe(1680);
+  });
+  it("shares the selected currency and remembers it in browser storage", () => {
+    setCurrency("USD");
+    expect(getCurrency()).toBe("USD");
+    expect(localStorage.getItem("nexora-currency")).toBe("USD");
+    expect(formatMoney(1550)).toBe("USD 10.00");
+    setCurrency("ETB");
   });
   it("gives every marketplace six distinct subcategories", () => {
     for (const c of categories) {

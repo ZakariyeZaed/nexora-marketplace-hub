@@ -612,7 +612,7 @@ export function ListingForm({ id }: { id?: string }) {
   function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
-    const base = initialListings.find((l) => l.category === category);
+    const base = initialListings.find((l) => l.category === category && l.type === f.get("type"));
     if (!base) return;
     const bedrooms = Number(f.get("bedrooms") || 3),
       bathrooms = Number(f.get("bathrooms") || 2),
@@ -641,6 +641,7 @@ export function ListingForm({ id }: { id?: string }) {
       size,
       furnished: f.get("furnished") === "Yes",
       year: Number(f.get("year") || 2022),
+      model: String(f.get("model") || base.model || ""),
       fuel: String(f.get("fuel") || "Petrol"),
       transmission: String(f.get("transmission") || "Automatic"),
       specs:
@@ -654,6 +655,9 @@ export function ListingForm({ id }: { id?: string }) {
             }
           : category === "vehicles"
             ? {
+                Brand: String(f.get("brand")),
+                Model: String(f.get("model")),
+                Mileage: `${Number(f.get("mileage") || 0).toLocaleString("en-US")} km`,
                 Year: String(f.get("year")),
                 Fuel: String(f.get("fuel")),
                 Transmission: String(f.get("transmission")),
@@ -779,12 +783,14 @@ export function ListingForm({ id }: { id?: string }) {
             {category === "vehicles" && (
               <>
                 {input("Model year", "year", "number", existing?.year ?? 2022)}
-                {input("Brand / model", "brand", "text", existing?.brand ?? "Toyota")}
+                {input("Brand", "brand", "text", existing?.brand ?? "Toyota")}
+                {input("Model", "model", "text", existing?.model)}
+                {input("Mileage (km)", "mileage", "number", Number(existing?.specs['Mileage']?.replace(/[^0-9.]/g, "") ?? 0))}
                 <div>
                   <label htmlFor="listing-fuel" className="form-label">
                     Fuel
                   </label>
-                  <select id="listing-fuel" name="fuel" className="field">
+                  <select id="listing-fuel" name="fuel" className="field" defaultValue={existing?.fuel}>
                     <option>Petrol</option>
                     <option>Diesel</option>
                     <option>Hybrid</option>
@@ -795,7 +801,7 @@ export function ListingForm({ id }: { id?: string }) {
                   <label htmlFor="listing-transmission" className="form-label">
                     Transmission
                   </label>
-                  <select id="listing-transmission" name="transmission" className="field">
+                  <select id="listing-transmission" name="transmission" className="field" defaultValue={existing?.transmission}>
                     <option>Automatic</option>
                     <option>Manual</option>
                   </select>
@@ -1305,7 +1311,7 @@ export function AnalyticsPage({ admin = false }: { admin?: boolean }) {
           <thead>
             <tr>
               <th>Month</th>
-              <th>Demo revenue (ETB)</th>
+              <th>Demo revenue</th>
               <th>Data source</th>
             </tr>
           </thead>
@@ -1328,17 +1334,17 @@ export function PlansPage() {
   const plans = [
     {
       name: "Starter",
-      price: "Free",
+      price: 0,
       features: ["5 sample listings", "Sample storefront", "Demo inquiries"],
     },
     {
       name: "Growth",
-      price: "ETB 999 / month",
+      price: 999,
       features: ["50 sample listings", "Illustrative analytics", "Featured placement preview"],
     },
     {
       name: "Business",
-      price: "ETB 2,499 / month",
+      price: 2499,
       features: [
         "Unlimited sample listings",
         "Advanced analytics preview",
@@ -1357,7 +1363,7 @@ export function PlansPage() {
           <div key={p.name} className={`plan-card ${store.plan === p.name ? "selected" : ""}`}>
             <span className="demo-label">Demo plan</span>
             <h2 className="mt-5">{p.name}</h2>
-            <strong>{p.price}</strong>
+            <strong>{p.price === 0 ? "Free" : <><Money value={p.price} /> / month</>}</strong>
             <ul>
               {p.features.map((f) => (
                 <li key={f}>{f}</li>

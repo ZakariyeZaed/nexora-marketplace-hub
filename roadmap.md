@@ -5,3 +5,4 @@
 - [x] Connect wishlist, cart, demo checkout, inquiries, and simulated accounts.
 - [x] Complete informational pages and customer, seller, and admin dashboards.
 - [ ] Test routes, marketplace rules, core shopping and listing-management flows, and mobile layouts.
+- [ ] Finish persistent subcategory navigation, complete saved inquiry fields, and verify seller vehicle details.

@@ -20,8 +20,10 @@ let loaded = false;
 function load() {
   if (loaded || typeof window === "undefined") return;
   loaded = true;
-  const saved = localStorage.getItem(KEY);
-  if (currencies.some((c) => c.code === saved)) current = saved as CurrencyCode;
+  try {
+    const saved = localStorage.getItem(KEY);
+    if (currencies.some((c) => c.code === saved)) current = saved as CurrencyCode;
+  } catch { /* Currency remains usable when browser storage is unavailable. */ }
 }
 export function getCurrency(): CurrencyCode {
   load();

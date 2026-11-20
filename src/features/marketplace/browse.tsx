@@ -315,20 +315,21 @@ export function BrowsePage({
       {cat && (
         <div className="subcategory-grid" aria-label={`${cat.name} subcategories`}>
           {cat.subcategories.map((sub) => (
-            <button
-              type="button"
+            <Button
+              variant="ghost"
+              asChild
               key={sub.slug}
               className="subcategory-card"
               data-active={filters.type === sub.name}
-              aria-pressed={filters.type === sub.name}
-              onClick={() => update("type", filters.type === sub.name ? "" : sub.name)}
             >
+              <Link to={cat.href} search={{ type: sub.name }} aria-current={filters.type === sub.name ? "page" : undefined}>
               <img src={sub.image} alt={sub.name} width={1024} height={768} loading="lazy" />
               <div>
                 <h3>{sub.name}</h3>
                 <p>{sub.description}</p>
               </div>
-            </button>
+              </Link>
+            </Button>
           ))}
         </div>
       )}
